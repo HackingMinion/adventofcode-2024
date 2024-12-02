@@ -7,13 +7,13 @@ export function testDay(
   expectedPart1: any,
   expectedPart2: any,
 ) {
-  Deno.test(`Day ${day} - Part 1`, () => {
-    const result = solver.part1(exampleInput);
+  Deno.test(`Day ${day} - Part 1`, async () => {
+    const result = await solver.part1(exampleInput);
     assertEquals(result, expectedPart1);
   });
 
-  Deno.test(`Day ${day} - Part 2`, () => {
-    const result = solver.part2(exampleInput);
+  Deno.test(`Day ${day} - Part 2`, async () => {
+    const result = await solver.part2(exampleInput);
     assertEquals(result, expectedPart2);
   });
 }
