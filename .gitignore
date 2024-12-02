@@ -1,0 +1,5 @@
+# IDE
+.idea
+
+# Ignore Deno cache
+.deno/

@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@/utils/": "./src/utils/",
+    "@/days/": "./src/days/"
+  }
+}
