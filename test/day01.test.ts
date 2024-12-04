@@ -1,8 +1,10 @@
-import { part1, part2 } from "@/days/day01.ts";
-import { testDay } from "@/utils/test.ts";
+import {part1, part2} from "@/days/day01.ts";
+import {testDay} from "@/utils/test.ts";
+import {readInput} from "../src/utils/input.ts";
 
-const exampleInput = `1\n2\n3`; // Replace with actual example input
-const expectedPart1 = 6; // Replace with actual expected result for part 1
-const expectedPart2 = 6; // Replace with actual expected result for part 2
+const day = 1;
+const exampleInput = await readInput(day, true);
+const expectedPart1 = 11;
+const expectedPart2 = 31;
 
-testDay(1, { part1, part2 }, exampleInput, expectedPart1, expectedPart2);
+testDay(day, { part1, part2 }, exampleInput, expectedPart1, expectedPart2);

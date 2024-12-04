@@ -21,5 +21,5 @@ export function filterNonEmptyLines(lines: string[]): string[] {
 }
 
 export function splitLines(input: string): string[] {
-  return input.split("\n");
+  return input.split("\r\n");
 }
