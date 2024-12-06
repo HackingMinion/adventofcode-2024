@@ -23,3 +23,7 @@ export function filterNonEmptyLines(lines: string[]): string[] {
 export function splitLines(input: string): string[] {
   return input.split("\r\n");
 }
+
+export function getLineAsNumbers(line: string) {
+  return line.trim().split(/\s+/).map(Number)
+}
