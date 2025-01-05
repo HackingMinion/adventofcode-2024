@@ -1,6 +1,13 @@
-export async function readInput(day: number, isTest: boolean = false): Promise<string> {
+export async function readInput(
+  day: number,
+  isTest: boolean = false,
+  isPart2: boolean = false,
+): Promise<string> {
   const testSuffix = isTest ? "_test" : "";
-  const path = `inputs/day${day.toString().padStart(2, '0')}${testSuffix}.txt`;
+  const part2Suffix = isPart2 ? "2" : "";
+  const path = `inputs/day${
+    day.toString().padStart(2, "0")
+  }${testSuffix}${part2Suffix}.txt`;
   try {
     return await Deno.readTextFile(path);
   } catch (error) {
@@ -17,7 +24,7 @@ export function splitToNumbers(input: string): number[] {
   return splitToStrings(input).map(Number);
 }
 export function filterNonEmptyLines(lines: string[]): string[] {
-  return lines.filter(line => line.trim() !== "");
+  return lines.filter((line) => line.trim() !== "");
 }
 
 export function splitLines(input: string): string[] {
@@ -25,5 +32,5 @@ export function splitLines(input: string): string[] {
 }
 
 export function getLineAsNumbers(line: string) {
-  return line.trim().split(/\s+/).map(Number)
+  return line.trim().split(/\s+/).map(Number);
 }
