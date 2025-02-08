@@ -5,7 +5,7 @@ import { readInput } from "../src/utils/input.ts";
 const day = 4;
 const exampleInput = await readInput(day, true);
 const expectedPart1 = 18;
-const expectedPart2 = 1;
+const expectedPart2 = 9;
 
 testDay(
   day,

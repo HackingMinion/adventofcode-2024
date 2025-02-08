@@ -7,7 +7,9 @@ export function part1(input: string): number {
 }
 
 export function part2(input: string): number {
-  return 0;
+  const grid = createGrid(input);
+
+  return countMas(grid);
 }
 
 const createGrid = (input: string) => {
@@ -58,6 +60,45 @@ const countXmas = (grid: string[][]) => {
           count++;
         }
       }
+    }
+  }
+
+  return count;
+};
+
+const countMas = (grid: string[][]) => {
+  const lt = [-1, -1];
+  const rt = [1, -1];
+  const lb = [-1, 1];
+  const rb = [1, 1];
+
+  let count = 0;
+
+  // Loop through the grid and if A is found check all 4 corners and see if they spell MAS or SAM in any direction diagonally
+  for (let row = 1; row < grid.length - 1; row++) {
+    for (let col = 1; col < grid[row].length -1; col++) {
+      const start = grid[row][col];
+      if (start !== "A") {
+        continue;
+      }
+
+      const leftTop = [lt[0] + row, lt[1] + col];
+      const rightBottom = [rb[0] + row, rb[1] + col];
+
+      const diag1 = grid[leftTop[0]][leftTop[1]] + "A" + grid[rightBottom[0]][rightBottom[1]];
+      if (diag1 !== "MAS" && diag1 !== "SAM") {
+        continue;
+      }
+
+      const rightTop = [rt[0] + row, rt[1] + col];
+      const leftBottom = [lb[0] + row, lb[1] + col];
+
+      const diag2 = grid[rightTop[0]][rightTop[1]] + "A" + grid[leftBottom[0]][leftBottom[1]];
+      if (diag2 !== "MAS" && diag2 !== "SAM") {
+        continue;
+      }
+
+      count++;
     }
   }
 
